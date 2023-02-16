@@ -10,13 +10,21 @@
     }
 
     .card {
-        align-self: normal;
-        display: flex;
+        align-self: center;
+        align-items: center;
+        display: inline-block;
         flex-direction: column;
+        width: 180px;
+        height: 150px;
     }
 
-    .card .link {
+    .link {
         margin-top: auto;
+        display: inline-block;
+        position: absolute;
+        align-self: center;
+        bottom: 0;
+        text-align: center;
     }
 </style>
 <div class="button">
@@ -28,13 +36,11 @@
     <div class="row">
         {% for recipe, day in item_list %}
         <div class="col-lg">
-            <div class="card h-100 mb-3">
-                <div class="card text-center">
-                    <div class=" card-body">
-                        <h5 class="card-title">{{day}}</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">{{recipe}}</h6>
-                        <a href="{{recipe.url_links}}" class="link mt-auto">View recipe</a>
-                    </div>
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">{{day}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{recipe}}</h6>
+                    <a href="{{recipe.url_links}}" class="link">View recipe</a>
                 </div>
             </div>
         </div>
