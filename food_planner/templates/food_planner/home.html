@@ -1,0 +1,33 @@
+{% extends "food_planner/base.html" %}
+<!-- -->
+{% block content %}
+<style>
+    .center {
+
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+
+    .center-sent {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 200px;
+    }
+</style>
+
+<div class="center-sent">
+    <h3>This is an app that helps planning my food preparation for the upcoming week!</h3>
+</div>
+
+<div class="center">
+    <button type="button">
+        <a href="{% url 'food_planner' %}">Click here!</a>
+    </button>
+</div>
+<!-- -->
+{% endblock content %}

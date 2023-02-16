@@ -1,0 +1,45 @@
+{% extends "food_planner/base.html" %}
+<!-- -->
+{% block content %}
+<style>
+    .button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 200px;
+    }
+
+    .card {
+        align-self: normal;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .card .link {
+        margin-top: auto;
+    }
+</style>
+<div class="button">
+    <button type="button">
+        <a href="{% url 'food_planner' %}">Shuffle!</a>
+    </button>
+</div>
+<div class="container">
+    <div class="row">
+        {% for recipe, day in item_list %}
+        <div class="col-lg">
+            <div class="card h-100 mb-3">
+                <div class="card text-center">
+                    <div class=" card-body">
+                        <h5 class="card-title">{{day}}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">{{recipe}}</h6>
+                        <a href="{{recipe.url_links}}" class="link mt-auto">View recipe</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<!-- -->
+{% endblock content %}
