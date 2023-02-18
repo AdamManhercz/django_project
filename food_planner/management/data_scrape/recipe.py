@@ -39,19 +39,19 @@ def get_urls(data: str) -> list:
 
     return urls
 
-#def get_images(data: str) -> list:
-#    
-#    images = [d["src"] for d in data.find_all("img", src=True)]
-#
-#    return images
-#    
+def get_images(data: str) -> list:
+    
+    images = [d["src"] for d in data.find_all("img", src=True)]
 
-def get_csv(recipes: list, urls: list):
+    return images
+    
+
+def get_csv(recipes: list, urls: list, images:list):
     """Save the scraped data in csv"""
 
-    df = pd.DataFrame({"recipes": recipes, "urls": urls})
+    df = pd.DataFrame({"recipes": recipes, "urls": urls, "images":images})
 
-    df.to_csv("../project/recipe.csv")
+    df.to_csv("../project/recipes.csv")
 
 
 if __name__ == "__main__":
@@ -59,6 +59,6 @@ if __name__ == "__main__":
 
     recipes = get_recipes(data)
     urls = get_urls(data)
-    #images = get_images(data)
+    images = get_images(data)
 
-    get_csv(recipes, urls)
+    get_csv(recipes, urls, images)

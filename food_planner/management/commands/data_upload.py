@@ -7,10 +7,9 @@ class Command(BaseCommand):
     help = "Add recipes to RecipeList"
 
     def handle(self, *args, **options):
-        """Add recipes to models"""
 
-        df = pd.read_csv("recipe.csv")
+        df = pd.read_csv("recipes.csv", delimiter=",")
 
-        for recipe, url_link in zip(df.recipes, df.urls):
-            models = RecipeList(recipes=recipe, url_links=url_link)
+        for recipe, url, image in zip(df.recipes, df.urls, df.images):
+            models = RecipeList(recipes=recipe, urls=url, images=image)
             models.save()
