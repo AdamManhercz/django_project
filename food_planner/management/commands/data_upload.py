@@ -4,7 +4,7 @@ from food_planner.models import RecipeList
 
 
 class Command(BaseCommand):
-    help = "Import recipes"
+    help = "Add recipes to RecipeList"
 
     def handle(self, *args, **options):
         """Add recipes to models"""

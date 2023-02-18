@@ -3,4 +3,6 @@ from .models import RecipeList
 
 # Register your models here.
 
+
+
 admin.site.register(RecipeList)
