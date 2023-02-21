@@ -2,10 +2,15 @@
 <!-- -->
 {% block content %}
 
-<form action="/your-name/" method="post">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Submit">
-</form>
+<div class="container">
+    <form method="POST">
+        <fieldset>
+            <legend>Create meal plan for your next week!</legend>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Send</button>
+        </fieldset>
+    </form>
+</div>
 
 {% endblock content %}

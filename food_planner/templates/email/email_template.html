@@ -1,0 +1,9 @@
+Dear {{name}}!
+
+Here is your meal plan for the next week:
+
+{% for recipe, day in meal_items %}
+{{day}}: {{recipe}} - {{recipe.urls}}
+{% endfor %}
+
+Have a great day!

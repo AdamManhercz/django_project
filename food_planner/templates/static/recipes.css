@@ -1,0 +1,42 @@
+.div {
+    display: flex;
+}
+
+.section {
+    display: flex;
+}
+
+.owl-stage {
+
+    height: 400px;
+}
+
+.title {
+    max-height: 60px;
+}
+
+.button-section {
+    text-align: center;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+
+}
+
+.button {
+    text-align: center;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.owl-item {
+    display: flex;
+    height: 326px;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}

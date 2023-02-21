@@ -1,0 +1,38 @@
+{% extends "food/base.html" %}
+<!-- -->
+{% block content %}
+{% load static%}
+<link rel="stylesheet" href="{% static 'recipes.css' %}">
+
+<div class="section">
+    <div class="container-fluid my-5">
+        <h3 class=" title text-center fw-bold">Recipes</h3>
+        <div class="button-section align-center">
+            <button class="button text-center" type="button">
+                <a href="{% url 'contact' %}">Get a meal plan!</a>
+            </button>
+        </div>
+        <div class="row mt-5 ">
+            <div class="owl-carousel owl-theme">
+                {% for recipe in random_recipes %}
+                <div class="item mb-4">
+                    <div class="card border-0 shadow">
+                        <img src="{{recipe.images}}" alt="{{recipe.recipes}}">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">{{recipe.recipes}}</h5>
+                            <a href="{{recipe.urls}}" class="btn btn-primary ">View recipe</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+</a>
+<a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+</a>
+{% endblock content %}
