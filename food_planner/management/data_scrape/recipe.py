@@ -1,6 +1,8 @@
 """Collect food recipes"""
 
 import requests
+import os
+from django.conf import settings
 from bs4 import BeautifulSoup as bs
 import pandas as pd
 
@@ -19,7 +21,7 @@ def get_data(url: str):
 
     data = section.find("div", class_="loc fixedContent")
 
-    return data
+    return data, soup
 
 
 def get_recipes(data: str) -> list:
@@ -39,12 +41,29 @@ def get_urls(data: str) -> list:
 
     return urls
 
-def get_images(data: str) -> list:
-    
-    images = [d["src"] for d in data.find_all("img", src=True)]
+def get_images(recipes:list, soup:list) -> list:
 
-    return images
+    recipes = [recipe.lower().replace(" ", "_") for recipe in recipes]
     
+    img_src = []
+
+    for i, recipe in enumerate(recipes):
+        try:
+            img_url = soup.select("img")[i]["data-src"]
+            
+        except KeyError:
+            img_url = soup.select("img")[i]["src"]
+        
+        response = requests.get(img_url)
+        file_path = f"C:/Users/norat/Desktop/project/media/{recipe}.jpg"
+        img_src.append(file_path)
+
+        if response.status_code:
+            with open(file_path, "wb") as f:
+
+                f.write(response.content)
+
+    return img_src
 
 def get_csv(recipes: list, urls: list, images:list):
     """Save the scraped data in csv"""
@@ -55,10 +74,10 @@ def get_csv(recipes: list, urls: list, images:list):
 
 
 if __name__ == "__main__":
-    data = get_data(URL)
+    data,soup = get_data(URL)
 
     recipes = get_recipes(data)
     urls = get_urls(data)
-    images = get_images(data)
+    img_src = get_images(recipes, soup)
 
-    get_csv(recipes, urls, images)
+    get_csv(recipes, urls, img_src)
