@@ -140,3 +140,5 @@ EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 EMAIL_HOST_USER = "foodplanner.django@gmail.com"
 EMAIL_HOST_PASSWORD = "fecrkpeijozwhrja"
+#
+#Superuser: Adam, djangoproject
