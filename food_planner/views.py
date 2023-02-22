@@ -8,18 +8,14 @@ from django.conf import settings
 # Create your views here.
 
 def home(request):
-    return render(request, "food/home.html",)
-
+    return render(request, "food/home.html")
 
 def recipes(request):
 
     random_recipes = RecipeList.objects.order_by("?")
+    context = {"random_recipes": random_recipes}
 
-    return render(
-        request,
-        ("food/recipes.html"),
-        {"random_recipes": random_recipes},
-    )
+    return render(request,"food/recipes.html",context)
 
 def contact(request): 
     random_recipes = RecipeList.objects.order_by("?")[:5]
@@ -43,7 +39,8 @@ def contact(request):
         return redirect ("recipes/")
     
     form = ContactForm()
-    return render(request, "food/contact.html", {'form':form})
+    context = {'form': form}
+    return render(request, "food/contact.html", context)
 
 
 def add_recipe(request):
@@ -56,5 +53,6 @@ def add_recipe(request):
             form = AddRecipeForm()
 
     form = AddRecipeForm()
-    return render(request, 'food/add_recipe.html', {'form': form})
+    context = {'form': form}
+    return render(request, 'food/add_recipe.html', context)
 
