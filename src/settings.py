@@ -123,9 +123,10 @@ STATIC_URL = "static/"
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'food_planner/templates/static'), )
 
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_ROOT = os.path.join(BASE_DIR, "food_planner/management/media")
 MEDIA_URL = "/media/"
 
+#os.path.join(BASE_DIR, "food_planner/management/media")
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
