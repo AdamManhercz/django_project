@@ -28,15 +28,16 @@
 
 .card-body {
     padding: 20px;
+    position: relative;
 }
 
 .owl-item {
     display: flex;
     height: 326px;
+
 }
 
-.btn {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
+.btn-bottom {
+    position: absolute;
+    bottom: 0;
 }

@@ -1,16 +1,7 @@
 .form {
-    margin: 0;
+    display: flex;
     position: absolute;
     top: 50%;
     left: 50%;
-    -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-}
-
-.field,
-.btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 200px;
 }

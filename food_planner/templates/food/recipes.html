@@ -17,10 +17,10 @@
                 {% for recipe in random_recipes %}
                 <div class="item mb-4">
                     <div class="card border-0 shadow">
-                        <img src="{{recipe.images.url}}" alt="{{recipe}}">
+                        <img src="{{recipe.images}}" alt="{{recipe}}">
                         <div class="card-body text-center">
                             <h5 class="card-title">{{recipe.recipes}}</h5>
-                            <a href="{{recipe.urls}}" class="btn btn-primary ">View recipe</a>
+                            <a href="{{recipe.urls}}" class="btn btn-primary btn-bottom">View recipe</a>
                         </div>
                     </div>
                 </div>

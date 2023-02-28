@@ -6,7 +6,7 @@ class RecipeList(models.Model):
 
     recipes = models.CharField(max_length=250, primary_key=True ,unique=True)
     urls = models.URLField(max_length=200, unique=True)
-    images = models.ImageField(upload_to="images/")
+    images = models.CharField(max_length=350, unique=True)
 
     def __str__(self):
         return f"{self.recipes}"

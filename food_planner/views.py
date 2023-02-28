@@ -45,7 +45,7 @@ def contact(request):
 
 def add_recipe(request):
     if request.method == "POST":
-        form = AddRecipeForm(request.POST, request.FILES)
+        form = AddRecipeForm(request.POST)
         
         if form.is_valid():
             form.save()
