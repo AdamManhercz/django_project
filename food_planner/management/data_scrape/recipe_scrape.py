@@ -1,4 +1,5 @@
 import requests
+from typing import Tuple, List
 from dataclasses import dataclass
 from bs4 import BeautifulSoup as bs
 
@@ -9,9 +10,9 @@ URL = "https://www.simplyrecipes.com/recipes-5090746"
 @dataclass
 class Scraper:
 
-    url: str = URL
+    url:str = URL
 
-    def get_recipe_info(self) -> list[str]:
+    def get_recipe_info(self) -> Tuple[List[str], List[str],List[str]]:
         """Collects the titles, the urls and the image sources of the recipes"""
 
         header = {
