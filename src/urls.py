@@ -15,16 +15,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.conf import settings
-from django.conf.urls.static import static
+from food_planner import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("food_planner.urls")),
-    path("recipes/", include("food_planner.urls")),
-    path("contact/", include("food_planner.urls")),
-     path("add_recipe/", include("food_planner.urls")),
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path("recipes/", views.recipes, name="recipes"),
+    path("contact/", views.contact, name="contact"),
+    path("add_recipe/", views.add_recipe, name="add_recipe")
+]
+
+
+
+
+
 
 
 

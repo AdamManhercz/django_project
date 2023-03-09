@@ -7,12 +7,14 @@
 
 <div class="container">
     <form class="form" method="POST" enctype="multipart/form-data">
-        <fieldset class="field">
-            <legend>Add new recipe</legend>
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </fieldset>
+        <table>
+            <fieldset class="fieldset">
+                <legend>Add new recipe</legend>
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </fieldset>
+        </table>
     </form>
 </div>
 {% endblock content %}

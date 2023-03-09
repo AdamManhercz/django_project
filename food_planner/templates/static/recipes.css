@@ -1,14 +1,5 @@
-.div {
-    display: flex;
-}
-
 .section {
     display: flex;
-}
-
-.owl-stage {
-
-    height: 400px;
 }
 
 .title {
@@ -19,25 +10,34 @@
     text-align: center;
     margin-top: 1.5rem;
     margin-bottom: 0.5rem;
-
 }
 
 .button {
     text-align: center;
 }
 
+.card img {
+    height: 200px;
+    object-fit: cover;
+}
+
 .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
     padding: 20px;
-    position: relative;
+}
+
+.card-title {
+    margin-bottom: 1rem;
 }
 
 .owl-item {
     display: flex;
-    height: 326px;
-
+    height: 350px;
 }
 
 .btn-bottom {
-    position: absolute;
     bottom: 0;
 }

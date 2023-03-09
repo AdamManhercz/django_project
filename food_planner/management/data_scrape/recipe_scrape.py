@@ -1,7 +1,8 @@
-import requests
 from typing import Tuple, List
 from dataclasses import dataclass
 from bs4 import BeautifulSoup as bs
+import requests
+
 
 
 URL = "https://www.simplyrecipes.com/recipes-5090746"
@@ -9,6 +10,7 @@ URL = "https://www.simplyrecipes.com/recipes-5090746"
 
 @dataclass
 class Scraper:
+    """Collects recipe data from the given url"""
 
     url:str = URL
 
