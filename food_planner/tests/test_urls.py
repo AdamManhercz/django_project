@@ -16,7 +16,6 @@ class TestUrls(SimpleTestCase):
     def test_home_url(self):
         """Tests home url"""
 
-        print(resolve(self.home_url))
         self.assertEqual(resolve(self.home_url).func, home)
 
     def test_recipes_url(self):
