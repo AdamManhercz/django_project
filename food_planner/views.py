@@ -1,16 +1,22 @@
+"""Views"""
+
+from django.core.mail import EmailMessage, BadHeaderError
+from django.template.loader import render_to_string
+from django.conf import settings
 from django.shortcuts import render, redirect, HttpResponse
 from .models import RecipeList
 from .forms import ContactForm, AddRecipeForm
-from django.core.mail import EmailMessage, send_mail, BadHeaderError
-from django.template.loader import render_to_string
-from django.conf import settings
+
 
 # Create your views here.
 
 def home(request):
+    """Home page"""
+
     return render(request, "food/home.html")
 
 def recipes(request):
+    """Shows the available recipes of the page"""
 
     random_recipes = RecipeList.objects.order_by("?")
     context = {"random_recipes": random_recipes}
@@ -18,6 +24,8 @@ def recipes(request):
     return render(request,"food/recipes.html",context)
 
 def contact(request): 
+    """Creates the content and the sending mechanismi of the requested meal plan"""
+
     random_recipes = RecipeList.objects.order_by("?")[:5]
     weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
     meal_items = zip(random_recipes, weekdays)
@@ -36,17 +44,17 @@ def contact(request):
                 email.send()
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
-        return redirect ("recipes/")
+        return redirect ("home")
     
     form = ContactForm()
     context = {'form': form}
     return render(request, "food/contact.html", context)
 
-
 def add_recipe(request):
+    """Creates the form to add new recipe to the database"""
+
     if request.method == "POST":
         form = AddRecipeForm(request.POST)
-        
         if form.is_valid():
             form.save()
         else:
@@ -55,4 +63,3 @@ def add_recipe(request):
     form = AddRecipeForm()
     context = {'form': form}
     return render(request, 'food/add_recipe.html', context)
-
