@@ -20,9 +20,28 @@ def recipes(request):
 
     add_recipes_to_model()
 
-    random_recipes = RecipeList.objects.order_by("?")
-    context = {"random_recipes": random_recipes}
+    random_recipes = RecipeList.objects.order_by("?")[:5]
+    weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+    meal_items = zip(random_recipes, weekdays)
 
+    random_recipes = RecipeList.objects.order_by("?")
+
+    
+    if request.method == "POST":
+        name = request.user.username
+        user_email = request.user.email
+        message = render_to_string("email/email_template.html", {"name": name, "meal_items": meal_items})
+        email = EmailMessage("Meal plan",
+                                message, 
+                                settings.EMAIL_HOST_USER, 
+                                [user_email])
+        try:
+            email.send()
+            return redirect("home")
+        except BadHeaderError:
+            return HttpResponse('Invalid header found.')
+        
+    context = {"random_recipes": random_recipes}
     return render(request,"food/recipes.html",context)
 
 def contact(request): 
