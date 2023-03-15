@@ -6,7 +6,7 @@ from django.conf import settings
 from django.shortcuts import render, redirect, HttpResponse
 from .models import RecipeList
 from .forms import ContactForm, AddRecipeForm
-from .management.commands.upload_data import add_recipes_to_model
+
 
 # Create your views here.
 
@@ -17,8 +17,6 @@ def home(request):
 
 def recipes(request):
     """Shows the available recipes of the page"""
-
-    add_recipes_to_model()
 
     random_recipes = RecipeList.objects.order_by("?")[:5]
     weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]

@@ -43,6 +43,8 @@ INSTALLED_APPS = [
 
     #3rd party
     "rest_framework",
+    "django_celery_results",
+    "django_celery_beat",
     "crispy_forms",
     'crispy_bootstrap4'
 ]
@@ -138,8 +140,7 @@ MEDIA_URL = "/media/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-# E-mail backend
-
+# E-MAIL BACKEND
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
@@ -150,8 +151,22 @@ EMAIL_HOST_PASSWORD = "fecrkpeijozwhrja"
 #
 #Superuser: Adam, djangoproject
 
+
+# CELERY
+CELERY_BROKER_URL = "redis://127.0.0.1:6379"
+CELERY_ACCEPT_CONTENT = ["application/json"]
+CELERY_RESULT_SERIALIZER = "json"
+CELERY_TASK_SERIALIZER = "json"
+CELERY_TIMEZONE = "Europe/Budapest"
+
+CELERY_RESULT_BACKEND = "django-db"
+
+# CELERY BEAT
+CELERY_BEAT_SCHEDULER = "django_celery_beat.schedulers:DatabaseScheduler"
+
+# CRISPY
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
+# LOGIN CONFIG
 LOGIN_REDIRECT_URL = "recipes"
-
-LOGIN_URL = 'user_login'
+LOGIN_URL = "user_login"
