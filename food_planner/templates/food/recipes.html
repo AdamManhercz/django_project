@@ -7,11 +7,12 @@
 <div class="section">
     <div class="container-fluid my-5">
         <h3 class=" title text-center fw-bold">Recipes</h3>
-        <div class="button-section align-center d-flex justify-content-center">
-            <button class="button text-center" type="button">
-                <a href="{% url 'contact' %}">Get a meal plan!</a>
-            </button>
-        </div>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="button-section align-center d-flex justify-content-center">
+                <button class="btn btn-primary" type="submit">Get a meal plan!</button>
+            </div>
+        </form>
         <div class="row mt-5 ">
             <div class="owl-carousel owl-theme">
                 {% for recipe in random_recipes %}

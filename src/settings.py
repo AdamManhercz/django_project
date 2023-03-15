@@ -39,9 +39,12 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "food_planner",
+    "users",
 
-    #REST
-    "rest_framework"
+    #3rd party
+    "rest_framework",
+    "crispy_forms",
+    'crispy_bootstrap4'
 ]
 
 MIDDLEWARE = [
@@ -146,3 +149,9 @@ EMAIL_HOST_USER = "foodplanner.django@gmail.com"
 EMAIL_HOST_PASSWORD = "fecrkpeijozwhrja"
 #
 #Superuser: Adam, djangoproject
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+LOGIN_REDIRECT_URL = "recipes"
+
+LOGIN_URL = 'user_login'

@@ -1,23 +1,53 @@
-from django.http import HttpResponse, JsonResponse
-from django.views.decorators.csrf import csrf_exempt
+from rest_framework import status
+from rest_framework.views import APIView
+from rest_framework.views import Http404
+from rest_framework.response import Response
+from  rest_framework.parsers import JSONParser
 from .models import RecipeList
 from .serializers import RecipeListSerializer
-from  rest_framework.parsers import JSONParser
 
 
-@csrf_exempt
-def recipes_list(request):
+
+class APIRecipesList(APIView):
     """List all recipes or create a new one"""
 
-    if request.method == 'GET':
-        snippets = RecipeList.objects.all()
-        serializer = RecipeListSerializer(snippets, many=True)
-        return JsonResponse(serializer.data, safe=False)
+    def get(self, request, format=None):
+        recipes = RecipeList.objects.all()
+        serializer = RecipeListSerializer(recipes, many=True)
+        return Response(serializer.data)
 
-    if request.method == 'POST':
+    def post(self, request, format=None):
         data = JSONParser().parse(request)
         serializer = RecipeListSerializer(data=data)
         if serializer.is_valid():
             serializer.save()
-            return JsonResponse(serializer.data, status=201)
-        return JsonResponse(serializer.errors, status=400)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+
+class APIRecipeDetails(APIView):
+    """Retrieve, update or delete a recipe details."""
+
+    def get_object(self, pk):
+        try:
+            return RecipeList.objects.get(pk=pk)
+        except RecipeList.DoesNotExist:
+             raise Http404
+
+    def get(self, request, pk, format=None):
+        recipe = self.get_object(pk)
+        serializer = RecipeListSerializer(recipe)
+        return Response(serializer.data)
+
+    def put(self, request, pk, format=None):
+        recipe = self.get_object(pk)
+        serializer = RecipeListSerializer(recipe, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, pk, format=None):
+        recipe = self.get_object(pk)
+        recipe.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)

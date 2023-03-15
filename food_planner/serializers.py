@@ -3,6 +3,7 @@ from .models import RecipeList
 
 
 class RecipeListSerializer(serializers.ModelSerializer):
+    """RecipeList serialization"""
 
     class Meta:
         model = RecipeList
