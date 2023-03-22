@@ -1,6 +1,6 @@
 from django.test import TestCase, Client
 from django.urls import reverse, resolve
-from .views import register
+from ..views import register
 
 
 # Create your tests here.

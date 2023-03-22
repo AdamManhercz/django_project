@@ -43,8 +43,6 @@ INSTALLED_APPS = [
 
     #3rd party
     "rest_framework",
-    "django_celery_results",
-    "django_celery_beat",
     "crispy_forms",
     'crispy_bootstrap4'
 ]
