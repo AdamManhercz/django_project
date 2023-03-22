@@ -3,8 +3,6 @@ from dataclasses import dataclass
 from bs4 import BeautifulSoup as bs
 import requests
 
-
-
 URL = "https://www.simplyrecipes.com/recipes-5090746"
 
 

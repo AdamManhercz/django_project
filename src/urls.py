@@ -27,7 +27,6 @@ urlpatterns = [
     path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name="user_login"),
     path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name="user_logout"),
     path("recipes/", views.recipes, name="recipes"),
-    path("contact/", views.contact, name="contact"),
     path("add_recipe/", views.add_recipe, name="add_recipe"),
     path("api/recipe_list", rest_views.APIRecipesList.as_view(), name="api_list"),
 ]
