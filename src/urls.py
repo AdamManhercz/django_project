@@ -29,6 +29,7 @@ urlpatterns = [
     path("recipes/", views.recipes, name="recipes"),
     path("add_recipe/", views.add_recipe, name="add_recipe"),
     path("api/recipe_list", rest_views.APIRecipesList.as_view(), name="api_list"),
+    path("api/recipe_list/<str:recipes>", rest_views.APIRecipeDetail.as_view(), name="api_recipe")
 ]
 
 

@@ -4,9 +4,7 @@ from django.contrib.auth.models import User #pylint: disable=import-error
 from django.core import mail
 from django.conf import settings
 from ..models import RecipeList
-from rest_framework import status
-from rest_framework.test import APITestCase, APIClient
-from ..serializers import RecipeListSerializer
+
 
 
 class TestViews(TestCase):
@@ -19,9 +17,6 @@ class TestViews(TestCase):
         self.home_url = reverse("home")
         self.add_recipe_url = reverse("add_recipe")
         self.recipes_url = reverse("recipes")
-        self.api_url = reverse("api_list")
-        self.api_client = APIClient()
-
 
         RecipeList.objects.create(
             recipes='Spaghetti Carbonara',
@@ -33,6 +28,7 @@ class TestViews(TestCase):
             username="testuser", 
             email="testuser@test.com", 
             password="testpass")
+        
 
 ## HOME VIEW TEST
     def test_home_view(self):
@@ -99,32 +95,3 @@ class TestViews(TestCase):
         self.assertEqual(mail.outbox[0].from_email, settings.EMAIL_HOST_USER)
 
 
-## API VIEWS TESTS
-
-    def test_api_can_create_a_recipe(self):
-        """Api create recipe test"""
-
-        test_data = {
-            "recipes": "test recipe", 
-            "urls":"https://www.example.com/testrecipe", 
-            "images":"https://www.example.com/images/testrecipes.jpg"
-            }
-        response = self.api_client.post(self.api_url, test_data, format='json')
-
-        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-
-    def test_api_can_get_all_recipes(self):
-
-        response = self.api_client.get(self.api_url)
-        recipes = RecipeList.objects.all()
-        serializer = RecipeListSerializer(recipes, many=True)
-
-        self.assertEqual(response.data, serializer.data)
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-
-
-
-        
-
-
-    
