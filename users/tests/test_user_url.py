@@ -2,9 +2,7 @@ from django.test import TestCase, Client
 from django.urls import reverse, resolve
 from ..views import register
 
-
-# Create your tests here.
-class TestUrls(TestCase):
+class TestUserUrls(TestCase):
     """Urls tests"""
 
     def setUp(self) -> None:

@@ -13,8 +13,8 @@ class UserRegisterForm(UserCreationForm):
             "id":"username",
             "type":"text",
             "placeholder":"Username",
-            "maxlenght":"16",
-            "minlenght":"6"
+            "maxlength":"16",
+            "minlength":"3"
         })
         self.fields["email"].widget.attrs.update({
             "required":"",
@@ -22,8 +22,8 @@ class UserRegisterForm(UserCreationForm):
             "id":"email",
             "type":"email",
             "placeholder":"E-mail",
-            "maxlenght":"16",
-            "minlenght":"6"
+            "maxlength":"30",
+            "minlength":"3"
         })
         self.fields["password1"].widget.attrs.update({
             "required":"",
@@ -31,8 +31,8 @@ class UserRegisterForm(UserCreationForm):
             "id":"password1",
             "type":"password",
             "placeholder":"Password",
-            "maxlenght":"16",
-            "minlenght":"6"
+            "maxlength":"16",
+            "minlength":"3"
         })
         self.fields["password2"].widget.attrs.update({
             "required":"",
@@ -40,8 +40,8 @@ class UserRegisterForm(UserCreationForm):
             "id":"password2",
             "type":"password",
             "placeholder":"Password again",
-            "maxlenght":"16",
-            "minlenght":"6"
+            "maxlength":"16",
+            "minlength":"3"
         })
 
 
