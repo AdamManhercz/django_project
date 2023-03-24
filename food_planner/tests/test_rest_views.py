@@ -8,6 +8,7 @@ from ..serializers import RecipeListSerializer
 
 
 class TestViews(APITestCase):
+    """API views tests"""
 
     def setUp(self) -> None:
          
@@ -19,10 +20,7 @@ class TestViews(APITestCase):
             "urls":"https://www.example.com/testrecipe", 
             "images":"https://www.example.com/images/testrecipes.jpg"
             }
-
-
-## API VIEWS TESTS
-
+         
     def test_api_recipes(self):
             """Tests API GET"""
 
