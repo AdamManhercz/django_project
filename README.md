@@ -1,7 +1,7 @@
-# django_project
+# Django project
 
 ## The task
-To create an application that is designed to help in organizing one's meals for the upcoming week. Besides the functional standpoint, the exercise provided a good opportunity to work with a specific framework and to gain a small insight into complex Python coding.
+To create an application that is designed to help in organizing one's meals for the upcoming week. Besides the functional standpoint, the exercise provided me a good opportunity to work with a specific framework and to gain a small insight into complex Python coding.
 
 ## Applied tools
 
@@ -19,13 +19,14 @@ To create an application that is designed to help in organizing one's meals for 
 
 3. Tools
 - [Docker](https://www.docker.com/)
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 - [Docker compose](https://docs.docker.com/compose/)
 - [GitHub](https://github.com/) 
 - [Visual Studio Code](https://code.visualstudio.com/)
 
-## Setup, installation
+## How to run the application?
 
-There are two ways of running this application: locally and in a docker container.
+There are two ways of running this application: locally or in a docker container.
 
 Here are the steps:
 
@@ -33,10 +34,9 @@ Here are the steps:
 2. Activate your venv: `..yourvenv\Scripts\activate`
 3. Clone the Github repo on your venv: `git clone https://github.com/AdamManhercz/django_project.git`
 
-
 ### Run on Docker
 
-4. Download Docker Desktop on your computer, create an account, log in
+4. In case, you don't have: download Docker Desktop on your computer, create an account,open it, log in
 5. Run docker-compose command in main folder: `docker-compose --build`
 6. Run the app in your container: `docker-compose up`
 7. Open a browser and go http://127.0.0.1:8000
@@ -48,5 +48,9 @@ Here are the steps:
 6. Open a browser and go http://127.0.0.1:8000
 
 
-
 ## Repo content
+
+The repository contains the project folder **src**, which has the basic configurations of the django project, including the main setup for the urls. The created django main application folder **food_planner** contain the essential configurations and customizations of the application, such the **views.py**, **models.py**, **forms.py** as well as the **rest_views.py** and **serializers.py** files that are enable the REST API design. 
+The **management** folder contains the scraping scripts that fill up the database of the project, the **templates** folder has the HTML and CSS files for the subpages.The **users** folder contains the backend for the registration, login and logout process.
+Furthermore, **the Dockerfile** and **docker_compose.yml** 
+ 
