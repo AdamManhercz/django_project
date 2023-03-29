@@ -48,9 +48,11 @@ Here are the steps:
 6. Open a browser and go http://127.0.0.1:8000
 
 
-## Repo content
+## Repository content
 
 The repository contains the project folder **src**, which has the basic configurations of the django project, including the main setup for the urls. The created django main application folder **food_planner** contain the essential configurations and customizations of the application, such the **views.py**, **models.py**, **forms.py** as well as the **rest_views.py** and **serializers.py** files that are enable the REST API design. 
 The **management** folder contains the scraping scripts that fill up the database of the project, the **templates** folder has the HTML and CSS files for the subpages.The **users** folder contains the backend for the registration, login and logout process.
-Furthermore, **the Dockerfile** and **docker_compose.yml** 
+Furthermore, **the Dockerfile** and **docker_compose.yml** are configuring the connection between the project and Docker to create an image, then a container, that ensures to run the application in an independent operating system. 
+I used SQLite, the default Django database, as a database for the app. 
+Eventually, **requirements.txt** contains all the dependencies that one needs to run and use the app.
  
