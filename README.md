@@ -4,7 +4,7 @@
 To create an application that is designed to help in organizing one's meals for the upcoming week. Besides the functional standpoint, the exercise provided me a good opportunity to work with a specific framework and to gain a small insight into complex Python coding.
 
 1. [Applied tools](#applied-tools)
-2. [ How to run the application?](#how-to-run-theapplication)
+2. [How to run the application?](#how-to-run-the-application)
 3. [Repository content](#repository-content)
 
 ## Applied tools
