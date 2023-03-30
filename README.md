@@ -8,7 +8,7 @@ To create an application that is designed to help in organizing one's meals for 
 2. [How to run the application?](#how-to-run-the-application)
 3. [Functional description](#functional-description)
 4. [Repository content](#repository-content)
-5. []()
+5. [Notable](#notable)
 
 ## Applied tools
 
