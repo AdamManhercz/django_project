@@ -1,6 +1,6 @@
 """Views"""
 
-from django.core.mail import EmailMessage, BadHeaderError
+from django.core.mail import EmailMessage
 from django.contrib import messages
 from django.template.loader import render_to_string
 from django.conf import settings
@@ -35,11 +35,9 @@ def recipes(request):
                                 message, 
                                 settings.EMAIL_HOST_USER, 
                                 [request.user.email])
-        try:
-            email.send()
-            return redirect("home")
-        except BadHeaderError:
-            return HttpResponse('Invalid header found.')
+        
+        email.send()
+        return redirect("home")
         
     context = {"random_recipes": random_recipes}
     return render(request,"food/recipes.html",context)
