@@ -29,6 +29,7 @@ To create an application that is designed to help in organizing one's meals for 
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 - [Docker compose](https://docs.docker.com/compose/)
 - [GitHub](https://github.com/) 
+- [GitHub Actions](https://docs.github.com/en/actions)
 - [Visual Studio Code](https://code.visualstudio.com/)
 
 ## How to run the application?
@@ -65,11 +66,12 @@ Since the application is designed with a REST API, you can use the "api/recipe_l
 
 The repository contains the project folder **src**, which has the basic configurations of the django project, including the main setup for the urls. The created main Django application folder **food_planner** contains the essential configurations and customizations of the application, such as the **views.py**, **models.py**, **forms.py**, as well as the **rest_views.py** and **serializers.py** files that are enable the REST API design. 
 The **management** folder contains the scraping scripts, which fill up the database of the project, the **templates** folder has the HTML and CSS files for the subpages. The **users** folder contains the backend for the registration, login and logout process.
-Furthermore, **the Dockerfile** and **docker_compose.yml** are configuring the connection between the project and Docker to create an image, then a container, that ensures to run the application in an independent operating system. 
+Furthermore, **the Dockerfile** and **docker_compose.yml** are configuring the connection between the project and Docker to create an image, then a container, that ensures to run the application in an independent operating system.
+Using **GitHub Actions**, the **'django-test.yml'** file located in the **'.github/workflows'** folder automates the testing of the application with every push and pull request.
 I used SQLite, the default Django database, as a database for the app. 
 Eventually, **requirements.txt** contains all the dependencies that the application needs to be run and used 
 
 
  ## Notable 
 
- Throughout my project changed, ideas came and went, thus I met lot of supportive and interesting tools within the framework and others that I can connect or use to my application. During my journey I discovered the essentials of the Django framework, learned how to handle **static and media files**, how to have the basics to form the design through **HTML and CSS**, set up the **e-mail backend** of the application, how to create **REST API design**, test my units, connect my application with **Docker**. Furthermore, I tried **Celery** and **Advenced Python Scheduler** for periodic tasks.
+ Throughout my project changed, ideas came and went, thus I met lot of supportive and interesting tools within the framework and others that I can connect or use to my application. During my journey I discovered the essentials of the Django framework, learned how to handle **static and media files**, how to have the basics to form the design through **HTML and CSS**, set up the **e-mail backend** of the application, how to create **REST API design**, test my units, connect my application with **Docker**, also get hint from *CICD* through **GitHub Actions**. Furthermore, I tried **Celery** and **Advenced Python Scheduler** for periodic tasks.
