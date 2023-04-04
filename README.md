@@ -46,7 +46,7 @@ Here are the steps:
 ### Run on Docker
 
 4. In case, you don't have: download Docker Desktop on your computer, create an account,open it, log in
-5. Run docker-compose command in main folder: `docker-compose build`
+5. Run docker-compose command in main folder to build your image: `docker-compose build`
 6. Run the app in your container: `docker-compose up`
 7. Open a browser and go http://127.0.0.1:8000
 
