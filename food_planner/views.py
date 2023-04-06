@@ -4,7 +4,7 @@ from django.core.mail import EmailMessage
 from django.contrib import messages
 from django.template.loader import render_to_string
 from django.conf import settings
-from django.shortcuts import render, redirect, HttpResponse
+from django.shortcuts import render, redirect
 from .models import RecipeList
 from .forms import AddRecipeForm
 
